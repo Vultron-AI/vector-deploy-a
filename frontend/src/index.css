@@ -1,0 +1,29 @@
+@import "./styles/tokens.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body {
+    @apply bg-[var(--color-bg)] text-[var(--color-fg)] antialiased;
+  }
+
+  /* Remove focus rings, use borders instead */
+  *:focus {
+    outline: none;
+  }
+
+  *:focus-visible {
+    outline: none;
+    border-color: var(--color-accent);
+  }
+
+  /* For elements that don't have borders by default */
+  button:focus-visible,
+  a:focus-visible,
+  [role="button"]:focus-visible {
+    box-shadow: inset 0 0 0 2px var(--color-accent);
+  }
+}
+
